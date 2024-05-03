@@ -15,6 +15,16 @@ const Home = () => {
       <div className="px-5 pt-6">
         <CategoryList />
       </div>
+
+      <div className="px-5 pt-6">
+        <Image
+          src="/banner-01.svg"
+          alt="Promação 30% off em Pizzas"
+          width={0}
+          height={0}
+          className="h-auto w-full object-contain"
+        />
+      </div>
     </div>
   );
 };
