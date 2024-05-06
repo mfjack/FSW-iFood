@@ -34,9 +34,9 @@ const RestaurantItem = ({ restaurant }: RestaurantItemProps) => {
 
       <div>
         <h3 className="text-sm font-semibold">{restaurant.name}</h3>
-        <div className="flex gap-4">
+        <div className="flex gap-4 items-center mt-1">
           <div className="flex items-center gap-1">
-            <Bike size={15} className="text-primary" />
+            <Bike size={16} className="text-primary" />
             <span className="text-xs text-muted-foreground">
               {Number(restaurant.deliveryFee) === 0
                 ? "Entrega grátis"
@@ -45,7 +45,7 @@ const RestaurantItem = ({ restaurant }: RestaurantItemProps) => {
           </div>
 
           <div className="flex items-center gap-1">
-            <TimerIcon size={15} className="text-primary" />
+            <TimerIcon size={16} className="text-primary" />
             <span className="text-xs text-muted-foreground">
               {restaurant.deliveryTimeMinutes} min.
             </span>
