@@ -13,7 +13,7 @@ const RestaurantItem = ({ restaurant }: RestaurantItemProps) => {
     <div className="max-w-[266px]: min-w-[266px] space-y-2">
       <div className="relative h-[136px] w-full">
         <Image
-          src={restaurant.imageUrl}  
+          src={restaurant.imageUrl}
           alt={restaurant.name}
           fill
           className="rounded-lg object-cover shadow-md"
@@ -34,7 +34,7 @@ const RestaurantItem = ({ restaurant }: RestaurantItemProps) => {
 
       <div>
         <h3 className="text-sm font-semibold">{restaurant.name}</h3>
-        <div className="flex gap-4 items-center mt-1">
+        <div className="mt-1 flex items-center gap-4">
           <div className="flex items-center gap-1">
             <Bike size={16} className="text-primary" />
             <span className="text-xs text-muted-foreground">
