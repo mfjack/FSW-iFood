@@ -1,5 +1,6 @@
 "use client";
 
+import DeliveryInfo from "@/app/_components/delivery-info";
 import DiscountBadge from "@/app/_components/discount-badge";
 import ProductList from "@/app/_components/product-list";
 import { Button } from "@/app/_components/ui/button";
@@ -44,7 +45,7 @@ const ProductDetails = ({
   };
 
   return (
-    <div className="relative z-50 mt-[-1.5rem] rounded-tl-3xl rounded-tr-3xl bg-white py-5">
+    <div className="relative z-50 mt-[-1.5rem] rounded-t-3xl bg-white py-5">
       <div className="flex items-center gap-2 px-5">
         <div className="relative h-8 w-8">
           <Image
@@ -94,32 +95,7 @@ const ProductDetails = ({
       </div>
 
       <div className="px-5">
-        <Card className="mt-6 flex justify-around p-5">
-          <div className="flex flex-col items-center">
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <BikeIcon />
-              <span className="text-xs">Entrega</span>
-            </div>
-
-            {Number(product.restaurant.deliveryFee) > 0 ? (
-              <p className="text-xs font-semibold">
-                {formatCurrency(Number(product.restaurant.deliveryFee))}
-              </p>
-            ) : (
-              <p>Entrega grátis</p>
-            )}
-          </div>
-
-          <div className="flex flex-col items-center">
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <TimerIcon />
-              <span className="text-xs">Entrega</span>
-            </div>
-            <span className="text-xs font-semibold">
-              {product.restaurant.deliveryTimeMinutes} min.
-            </span>
-          </div>
-        </Card>
+        <DeliveryInfo restaurant={product.restaurant} />
       </div>
 
       <div className="mt-6 space-y-3 px-5">
@@ -131,6 +107,10 @@ const ProductDetails = ({
         <h3 className="px-5 font-semibold">Sucos</h3>
 
         <ProductList products={complementaryProducts} />
+      </div>
+
+      <div className="p-5">
+        <Button className="w-full font-semibold">Adicionar à sacola</Button>
       </div>
     </div>
   );
