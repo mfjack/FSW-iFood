@@ -2,8 +2,6 @@ import Header from "@/app/_components/header";
 import RestaurantItem from "@/app/_components/restaurant-item";
 import { db } from "@/app/_lib/prisma";
 
-interface RecommendedRestaurantProps {}
-
 const RecommendedRestaurant = async () => {
   const restaurants = await db.restaurant.findMany({
     take: 10,
