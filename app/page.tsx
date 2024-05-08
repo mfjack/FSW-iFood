@@ -77,7 +77,7 @@ const Home = async () => {
             className="h-fit p-0 text-primary hover:bg-transparent"
             asChild
           >
-            <Link href={`/restaurant/recommended`}>
+            <Link href={`/restaurants/recommended`}>
               Ver todos
               <ChevronRightIcon size={16} />
             </Link>
