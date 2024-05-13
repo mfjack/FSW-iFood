@@ -102,11 +102,14 @@ const Header = () => {
             <>
               <div className="space-y-2">
                 <Button
+                  asChild
                   variant="ghost"
                   className="w-full justify-start space-x-3 text-sm font-normal"
                 >
-                  <ScrollTextIcon size="16" />
-                  <span className="block">Meus Pedidos </span>
+                  <Link href="/my-orders">
+                    <ScrollTextIcon size="16" />
+                    <span className="block">Meus Pedidos</span>
+                  </Link>
                 </Button>
 
                 <Button
