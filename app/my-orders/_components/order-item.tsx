@@ -4,10 +4,13 @@ import { Avatar, AvatarImage } from "@/app/_components/ui/avatar";
 import { Button } from "@/app/_components/ui/button";
 import { Card, CardContent } from "@/app/_components/ui/card";
 import { Separator } from "@/app/_components/ui/separator";
+import { CartContext } from "@/app/_context/cart";
 import { formatCurrency } from "@/app/_helpers/price";
 import { OrderStatus, Prisma } from "@prisma/client";
 import { ChevronRightIcon } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useContext } from "react";
 
 interface OrderItemProps {
   order: Prisma.OrderGetPayload<{
@@ -22,22 +25,36 @@ interface OrderItemProps {
   }>;
 }
 
+const getOrderStatus = (status: OrderStatus) => {
+  switch (status) {
+    case "CONFIRME":
+      return "Confirmado";
+    case "CANCELED":
+      return "Cancelado";
+    case "PREPARING":
+      return "Em preparação";
+    case "DELIVERING":
+      return "Em transporte";
+    case "COMPLETED":
+      return "Finalizado";
+    default:
+      return "Indefinido";
+  }
+};
+
 const OrderItem = ({ order }: OrderItemProps) => {
-  const getOrderStatus = (status: OrderStatus) => {
-    switch (status) {
-      case "CONFIRME":
-        return "Confirmado";
-      case "CANCELED":
-        return "Cancelado";
-      case "PREPARING":
-        return "Em preparação";
-      case "DELIVERING":
-        return "Em transporte";
-      case "COMPLETED":
-        return "Finalizado";
-      default:
-        return "Indefinido";
+  const router = useRouter();
+  const { addProductToCart } = useContext(CartContext);
+
+  const handleOrderClick = () => {
+    for (const orderProduct of order.products) {
+      addProductToCart({
+        product: { ...orderProduct.product, restaurant: order.restaurant },
+        quantity: orderProduct.quantity,
+      });
     }
+
+    router.push(`/restaurants/${order.restaurant.id}`);
   };
 
   return (
@@ -55,7 +72,6 @@ const OrderItem = ({ order }: OrderItemProps) => {
             {getOrderStatus(order.status)}
           </span>
         </div>
-
         <div className="flex items-center justify-between pt-3">
           <div className="flex items-center gap-2">
             <Avatar className="h-6 w-6">
@@ -105,7 +121,17 @@ const OrderItem = ({ order }: OrderItemProps) => {
           <Separator />
         </div>
 
-        <p className="text-sm">{formatCurrency(Number(order.totalPrice))}</p>
+        <div className="flex items-center justify-between">
+          <p className="text-sm">{formatCurrency(Number(order.totalPrice))}</p>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="text-prymary text-xs"
+            onClick={handleOrderClick}
+          >
+            Refazer o Pedido
+          </Button>
+        </div>
       </CardContent>
     </Card>
   );
