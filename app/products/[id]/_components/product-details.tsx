@@ -163,7 +163,7 @@ const ProductDetails = ({
           </SheetHeader>
 
           <div className="py-5">
-            <Cart />
+            <Cart setIsOpen={setIsCartOpen} />
           </div>
         </SheetContent>
       </Sheet>
