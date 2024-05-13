@@ -63,10 +63,10 @@ const OrderItem = ({ order }: OrderItemProps) => {
         <div
           className={`
           w-fit rounded-full bg-muted px-2 py-1 text-muted-foreground 
-          ${order.status === "CANCELED" && "bg-red-600 text-white"} 
-          ${order.status === "PREPARING" && "bg-yellow-600 text-white"} 
-          ${order.status === "DELIVERING" && "bg-blue-600 text-white"}
-          ${order.status === "CONFIRME" && "bg-green-600 text-white"}`}
+          ${order.status === "CANCELED" && "bg-red-600 text-muted-foreground"} 
+          ${order.status === "PREPARING" && "bg-yellow-600 text-muted-foreground"} 
+          ${order.status === "DELIVERING" && "bg-blue-600 text-muted-foreground"}
+          ${order.status === "CONFIRME" && "bg-green-600 text-muted-foreground"}`}
         >
           <span className="block text-xs font-semibold">
             {getOrderStatus(order.status)}
