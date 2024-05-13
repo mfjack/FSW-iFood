@@ -4,7 +4,6 @@ import {
   HeartIcon,
   HomeIcon,
   LogInIcon,
-  LogOut,
   LogOutIcon,
   MenuIcon,
   ScrollTextIcon,
@@ -93,7 +92,7 @@ const Header = () => {
 
           <Button
             variant="ghost"
-            className="w-full justify-start space-x-3 text-sm font-normal"
+            className="mb-2 w-full justify-start space-x-3 text-sm font-normal"
           >
             <HomeIcon size="16" />
             <span className="block">Inicio</span>

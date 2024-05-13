@@ -59,7 +59,7 @@ const CartItem = ({ cartProduct }: CartItemProps) => {
               <span className="text-xs text-muted-foreground line-through">
                 {formatCurrency(
                   Number(cartProduct.price) * cartProduct.quantity,
-                )}{" "}
+                )}
               </span>
             )}
           </div>

@@ -8,7 +8,11 @@ export interface CartProduct
   extends Prisma.ProductGetPayload<{
     include: {
       restaurant: {
-        select: { deliveryFee: true };
+        select: {
+          id: true;
+          deliveryFee: true;
+          deliveryTimeMinutes: true;
+        };
       };
     };
   }> {
@@ -30,7 +34,9 @@ interface ICartContext {
       include: {
         restaurant: {
           select: {
+            id: true;
             deliveryFee: true;
+            deliveryTimeMinutes: true;
           };
         };
       };
@@ -41,6 +47,7 @@ interface ICartContext {
   decrementProductQuantity: (productId: string) => void;
   incrementProductQuantity: (productId: string) => void;
   removeProductCart: (productId: string) => void;
+  clearCart: () => void;
 }
 
 export const CartContext = createContext<ICartContext>({
@@ -53,6 +60,7 @@ export const CartContext = createContext<ICartContext>({
   decrementProductQuantity: () => {},
   incrementProductQuantity: () => {},
   removeProductCart: () => {},
+  clearCart: () => {},
 });
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
@@ -80,6 +88,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const totalDiscount =
     subtotalPrice - totalPrice + Number(products?.[0]?.restaurant?.deliveryFee);
+
+  const clearCart = () => {
+    return setProducts([]);
+  };
 
   const decrementProductQuantity = (productId: string) => {
     return setProducts((prev) =>
@@ -176,6 +188,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         decrementProductQuantity,
         incrementProductQuantity,
         removeProductCart,
+        clearCart,
       }}
     >
       {children}
