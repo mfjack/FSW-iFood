@@ -90,14 +90,6 @@ const Header = () => {
             <Separator />
           </div>
 
-          <Button
-            variant="ghost"
-            className="mb-2 w-full justify-start space-x-3 text-sm font-normal"
-          >
-            <HomeIcon size="16" />
-            <span className="block">Inicio</span>
-          </Button>
-
           {data?.user && (
             <>
               <div className="space-y-2">
