@@ -7,6 +7,18 @@
 
 ![image](https://github.com/mfjack/fsw-food/assets/105893969/32ffc77c-0b50-4b82-99f6-9d5d5c1c2e0f)
 
+## Stack utilizada
+
+**Front-end:** ReactJS, NextJS, TypeScript, TailwindCSS, Shadcn/UI.
+
+**Back-end:** PostgreSQL, NodeJS, Prisma, Supabase.
+
+## Deploy
+
+```bash
+  https://food-fsw.vercel.app/
+```
+
 ## Pré-requisitos
 
 NodeJS instalado
@@ -37,15 +49,3 @@ yarn ou npm instalado
 ```bash
   Abra seu navegador e acesse http://localhost:3000
 ```
-## Stack utilizada
-
-**Front-end:** ReactJS, NextJS, TypeScript, TailwindCSS, Shadcn/UI.
-
-**Back-end:** PostgreSQL, NodeJS, Prisma, Supabase.
-
-## Deploy
-
-```bash
-  https://food-fsw.vercel.app/
-```
-
