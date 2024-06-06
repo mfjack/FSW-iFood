@@ -1,9 +1,9 @@
 # Food
 
+É uma plataforma de delivery de alimentos inspirada no iFood.
+
 ![image](https://github.com/mfjack/fsw-food/assets/105893969/c9b6154f-e5e2-4796-944f-27f32ea8b4dd)
 ![image](https://github.com/mfjack/fsw-food/assets/105893969/32ffc77c-0b50-4b82-99f6-9d5d5c1c2e0f)
-
-É uma plataforma de delivery de alimentos inspirada no iFood.
 
 ## Stack utilizada
 
