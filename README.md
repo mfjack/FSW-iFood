@@ -54,7 +54,7 @@ Abra seu navegador e acesse
 
 ## Deploy
 
-https://food-fsw.vercel.app/
+https://jack-food.vercel.app
 
 ## Suporte
 
